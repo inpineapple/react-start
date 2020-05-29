@@ -5,8 +5,8 @@ import React, {Component}from 'react';
     return (
       <header>
         
-    <h1><a href='index.html'>{this.props.title}</a></h1>
-       
+    <h1><a href='/'>{this.props.title}</a></h1>
+       <p>{this.props.sub}</p>
       </header>
     );
   }
