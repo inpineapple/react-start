@@ -12,8 +12,10 @@ import React, {Component}from 'react';
       desc=props_welcom.desc
     }
     else{
-      title=props_read[0].title
-      desc=props_read[0].desc
+      let i=this.props.selected_content
+      console.log(i)
+      title=props_read[i].title
+      desc=props_read[i].desc
     }
     return (
       <article>

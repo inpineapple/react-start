@@ -9,6 +9,7 @@ import Article from './components/Article'
      super(props)
      this.state={
        mode:'welcome',
+       selected_content:0,
        welcome:{title:"Hellow world", desc:"hello react"},
        subject:{title:"WEB", sub:"world wide web"},
        contents:[
@@ -21,9 +22,25 @@ import Article from './components/Article'
   render() {
     return (
       <div>
-       <Header title={this.state.subject.title} sub={this.state.subject.sub}></Header>
-       <Nav data={this.state.contents}></Nav>
-       <Article mode={this.state.mode} welcome={this.state.welcome} read={this.state.contents}></Article>
+       <Header title={this.state.subject.title} sub={this.state.subject.sub}
+              onChangeMode={()=>{
+                this.setState({
+                  mode:'welcome'
+                })
+              }}
+       ></Header>
+       <Nav data={this.state.contents}
+       onChangeMode={(index)=>{
+         this.setState({
+           mode:'read',
+           selected_content:index
+         })
+       }}
+       ></Nav>
+       <Article mode={this.state.mode} 
+       welcome={this.state.welcome} 
+       read={this.state.contents}
+       selected_content={this.state.selected_content}></Article>
       </div>
     );
   }

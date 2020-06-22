@@ -7,7 +7,12 @@ import React, {Component}from 'react';
     let props_data=this.props.data
     let data=props_data.map((value,index)=>(
         (<li key={props_data[index].id}>
-          <a href={props_data[index].id}>{props_data[index].title}</a>
+          <a href={props_data[index].id}
+          onClick={(e)=>{
+            e.preventDefault();
+            this.props.onChangeMode(index)
+          }}
+          >{props_data[index].title}</a>
           
         </li>)
     ))
